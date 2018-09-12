@@ -1,10 +1,6 @@
 class Hamming
   def self.compute(a,b)
-    raise ArgumentError if a.length != b.length
-    a = a.chars
-    b = b.chars
-    a.zip(b).count do |arr|
-      arr.first != arr.last
-    end
+    fail ArgumentError if a.length != b.length
+    a.chars.zip(b.chars).count { |first_set,second_set| first_set != second_set}
   end
 end
