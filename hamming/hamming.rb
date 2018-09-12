@@ -1,8 +1,10 @@
 class Hamming
   def self.compute(a,b)
-    return 0 if a == b
     raise ArgumentError if a.length != b.length
-    differnces = a.chars.each_with_index.map { |a,i| [a,i] } - b.chars.each_with_index.map { |b,i| [b,i] }
-    differnces.count
+    a = a.chars
+    b = b.chars
+    a.zip(b).count do |arr|
+      arr.first != arr.last
+    end
   end
 end
