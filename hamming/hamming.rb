@@ -1,6 +1,6 @@
 class Hamming
-  def self.compute(a,b)
-    fail ArgumentError if a.length != b.length
-    a.chars.zip(b.chars).count { |first_set,second_set| first_set != second_set}
+  def self.compute(strand_a, strand_b)
+    fail ArgumentError if strand_a.length != strand_b.length
+    strand_a.chars.zip(strand_b.chars).count { |nucleotide_a, nucleotide_b| nucleotide_a != nucleotide_b }
   end
 end
